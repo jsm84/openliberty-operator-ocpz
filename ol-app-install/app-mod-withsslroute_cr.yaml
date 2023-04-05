@@ -1,14 +1,14 @@
-apiVersion: openliberty.io/v1beta1
+apiVersion: apps.openliberty.io/v1beta2
 kind: OpenLibertyApplication
 metadata:
-  name: appmod
+  name: appmon
 spec:
   expose: true
   route:
     termination: reencrypt
     path: '/resorts'
-    host: 'modresort.apps.<SUB_DOMAIN>.<BASE_DOMAIN>'
-  applicationImage: image-registry.openshift-image-registry.svc:5000/openliberty-demo/app-modernization:v1.0.0
+    host: 'modresort.apps-crc.testing'
+  applicationImage: quay.io/jmanning/ol-demo-app:latest
   pullPolicy: Always
   service:
     annotations:
